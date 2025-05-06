@@ -129,7 +129,7 @@ img {
 .hero {
     padding: 60px 0;
     /* Soft green gradient background */
-    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+    background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
 }
 
 .hero-container {
@@ -369,4 +369,108 @@ img {
     .btn-buy {
         width: 70%;
     }
+}
+
+
+/* daftar */
+/* Fruit Grid (Untuk Top Premium) */
+.fruit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Fruit Card Styling */
+.fruit-card {
+    background-color: #fff;
+    border-radius: 20px; /* Sudut lebih bulat */
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Agar tombol selalu di bawah */
+    height: 100%; /* Membuat semua card sama tinggi dalam grid/flex */
+    overflow: hidden; /* Menghindari konten keluar dari border radius */
+}
+
+.fruit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.fruit-image-wrapper {
+    margin-bottom: 20px;
+    position: relative; /* Untuk background shape jika diperlukan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px; /* Beri tinggi minimal agar card tidak kolaps */
+}
+
+.fruit-image-wrapper img {
+    max-height: 160px; /* Batasi tinggi gambar */
+    width: auto; /* Biarkan lebar menyesuaikan */
+    object-fit: contain; /* Pastikan gambar tidak terdistorsi */
+}
+
+/* Opsi: Menambahkan background shape seperti di gambar */
+.fruit-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px; /* Sesuaikan ukuran shape */
+    height: 150px; /* Sesuaikan ukuran shape */
+    background-color: #fdf5e6; /* Warna krem / beige muda */
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Bentuk blob organik */
+    transform: translate(-50%, -50%) rotate(15deg); /* Posisi & rotasi */
+    z-index: -1; /* Taruh di belakang gambar */
+    opacity: 0.7; /* Sedikit transparan */
+}
+
+/* Horizontal Slider Section (Daftar Buah) */
+.fruit-slider-container {
+    overflow-x: auto; /* Aktifkan scroll horizontal */
+    padding-bottom: 20px; /* Beri ruang untuk scrollbar agar tidak menutupi shadow */
+    /* Properti untuk scroll-snap */
+    scroll-snap-type: x mandatory; /* Wajib snap ke item terdekat */
+    -webkit-overflow-scrolling: touch; /* Scroll halus di iOS */
+}
+
+/* Styling scrollbar (opsional, hanya Webkit) */
+.fruit-slider-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.fruit-slider-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.fruit-slider-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.fruit-slider-container::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+.fruit-slider {
+    display: flex; /* Membuat item berjajar horizontal */
+    gap: 25px; /* Jarak antar card di slider */
+    width: max-content; /* Lebar container sesuai total lebar item */
+}
+
+.slider-item {
+    /* Properti untuk scroll-snap */
+    scroll-snap-align: center; /* Pusatkan item saat snap */
+    /* Pastikan lebar item konsisten */
+    flex: 0 0 auto; /* Jangan biarkan item menyusut/membesar */
+    width: 280px; /* Atur lebar tetap untuk setiap card di slider */
+    /* Atau gunakan min-width jika ingin lebih fleksibel tapi tetap besar */
+    /* min-width: 250px; */
 }

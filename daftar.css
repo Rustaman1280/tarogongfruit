@@ -1,0 +1,283 @@
+/* Reset dan Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Font dasar */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa; /* Sedikit abu-abu muda */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Mewarisi warna dari parent */
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Menghilangkan space bawah gambar */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3436;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Tombol Dasar */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 50px; /* Sangat bulat */
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.btn-buy {
+    background-color: #27ae60; /* Hijau */
+    color: #fff;
+}
+
+.btn-buy:hover {
+    background-color: #219150; /* Hijau lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek naik sedikit */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.btn-outline:hover {
+    background-color: #f1f1f1;
+    border-color: #aaa;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky; /* Membuat header tetap di atas saat scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo .logo-text {
+    font-family: 'Pacifico', cursive; /* Font khusus untuk logo */
+    font-size: 2rem;
+    color: #27ae60; /* Warna hijau logo */
+}
+
+/* Jika logo adalah gambar */
+/* .logo img { height: 40px; } */
+
+nav ul {
+    display: flex;
+    gap: 30px; /* Jarak antar menu */
+}
+
+nav ul li a {
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #27ae60; /* Warna hijau saat hover */
+}
+
+/* Sections */
+main section {
+    padding: 60px 0;
+}
+
+/* Fruit Grid (Untuk Top Premium) */
+.fruit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Fruit Card Styling */
+.fruit-card {
+    background-color: #fff;
+    border-radius: 20px; /* Sudut lebih bulat */
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Agar tombol selalu di bawah */
+    height: 100%; /* Membuat semua card sama tinggi dalam grid/flex */
+    overflow: hidden; /* Menghindari konten keluar dari border radius */
+}
+
+.fruit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.fruit-image-wrapper {
+    margin-bottom: 20px;
+    position: relative; /* Untuk background shape jika diperlukan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px; /* Beri tinggi minimal agar card tidak kolaps */
+}
+
+.fruit-image-wrapper img {
+    max-height: 160px; /* Batasi tinggi gambar */
+    width: auto; /* Biarkan lebar menyesuaikan */
+    object-fit: contain; /* Pastikan gambar tidak terdistorsi */
+}
+
+/* Opsi: Menambahkan background shape seperti di gambar */
+.fruit-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px; /* Sesuaikan ukuran shape */
+    height: 150px; /* Sesuaikan ukuran shape */
+    background-color: #fdf5e6; /* Warna krem / beige muda */
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Bentuk blob organik */
+    transform: translate(-50%, -50%) rotate(15deg); /* Posisi & rotasi */
+    z-index: -1; /* Taruh di belakang gambar */
+    opacity: 0.7; /* Sedikit transparan */
+}
+
+/* Horizontal Slider Section (Daftar Buah) */
+.fruit-slider-container {
+    overflow-x: auto; /* Aktifkan scroll horizontal */
+    padding-bottom: 20px; /* Beri ruang untuk scrollbar agar tidak menutupi shadow */
+    /* Properti untuk scroll-snap */
+    scroll-snap-type: x mandatory; /* Wajib snap ke item terdekat */
+    -webkit-overflow-scrolling: touch; /* Scroll halus di iOS */
+}
+
+/* Styling scrollbar (opsional, hanya Webkit) */
+.fruit-slider-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.fruit-slider-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.fruit-slider-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.fruit-slider-container::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+.fruit-slider {
+    display: flex; /* Membuat item berjajar horizontal */
+    gap: 25px; /* Jarak antar card di slider */
+    width: max-content; /* Lebar container sesuai total lebar item */
+}
+
+.slider-item {
+    /* Properti untuk scroll-snap */
+    scroll-snap-align: center; /* Pusatkan item saat snap */
+    /* Pastikan lebar item konsisten */
+    flex: 0 0 auto; /* Jangan biarkan item menyusut/membesar */
+    width: 280px; /* Atur lebar tetap untuk setiap card di slider */
+    /* Atau gunakan min-width jika ingin lebih fleksibel tapi tetap besar */
+    /* min-width: 250px; */
+}
+
+/* Footer */
+footer {
+    background-color: #27ae60; /* Hijau */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px; /* Jarak dari konten terakhir */
+}
+
+/* Responsive (Contoh sederhana) */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap; /* Biarkan menu wrap jika tidak muat */
+    }
+
+    .fruit-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .slider-item {
+        width: 240px; /* Perkecil card di slider pada layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    .fruit-grid {
+        grid-template-columns: 1fr; /* Satu kolom di layar sangat kecil */
+    }
+     .slider-item {
+        width: 200px; /* Perkecil lagi card di slider */
+    }
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+}
